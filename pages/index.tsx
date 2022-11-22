@@ -100,6 +100,9 @@ export async function getStaticProps(
       banner,
       promotedArticles,
       promotedRecipes,
+      
     },
+
+    revalidate: 10, // In seconds
   }
 }
