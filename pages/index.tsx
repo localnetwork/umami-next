@@ -103,6 +103,6 @@ export async function getStaticProps(
       
     },
 
-    revalidate: 10, // In seconds
+    revalidate: 5, // In seconds
   }
 }
