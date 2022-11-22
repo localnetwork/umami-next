@@ -30,4 +30,4 @@ function App({ Component, pageProps: { session, ...pageProps } }) {
   )
 }
 
-export default appWithTranslation(App)
+export default App
