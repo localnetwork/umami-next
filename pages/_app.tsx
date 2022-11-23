@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider, Hydrate } from "@tanstack/react-query
 import { appWithTranslation } from "next-i18next"
 import NProgress from "nprogress"
 import "nprogress/nprogress.css"
+import { syncDrupalPreviewRoutes } from "next-drupal"
 
 import "styles/globals.css"
 
@@ -13,6 +14,10 @@ NProgress.configure({ showSpinner: false })
 Router.events.on("routeChangeStart", () => NProgress.start())
 Router.events.on("routeChangeComplete", () => NProgress.done())
 Router.events.on("routeChangeError", () => NProgress.done())
+
+Router.events.on("routeChangeStart", function (path) {
+  syncDrupalPreviewRoutes(path)
+})
 
 function App({ Component, pageProps: { session, ...pageProps } }) {
   const queryClientRef = React.useRef<QueryClient>()

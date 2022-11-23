@@ -13,4 +13,13 @@ module.exports = {
   images: {
     domains: ['http:localhost:3000', 'staging.test-dion.halcyondigitalhost.com'],
   },
+  async redirects() {
+    return [
+      {
+        source: "/about",
+        destination: "/",
+        permanent: true,
+      },
+    ]
+  },
 }
