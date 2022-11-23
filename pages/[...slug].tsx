@@ -100,6 +100,17 @@ export async function getStaticProps(
     }
   }
 
+  // Check for redirect.
+  if (path.redirect?.length) {
+    const [redirect] = path.redirect
+    return {
+      redirect: {
+        destination: redirect.to,
+        permanent: redirect.status === "301",
+      },
+    }
+  }
+
   // Fetch the resource from Drupal.
   const resource = await drupal.getResourceFromContext<DrupalNode>(
     path,

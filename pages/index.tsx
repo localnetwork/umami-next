@@ -102,7 +102,6 @@ export async function getStaticProps(
       promotedRecipes,
       
     },
-
     revalidate: 5, // In seconds
   }
 }
